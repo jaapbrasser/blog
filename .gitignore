@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+.Spotlight-V100
+.Trashes
+._*
+
+# Editors/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Hugo build artifacts
+/public/
+/resources/_gen/
+/.hugo_build.lock
+.hugo_cache/
+
+# Node tooling (some themes use it)
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+.cache/
+
+# Logs and env
+*.log
+.env
+.env.*

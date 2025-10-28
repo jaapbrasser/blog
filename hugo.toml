@@ -1,0 +1,33 @@
+baseURL = "https://jaapbrasser.github.io/"
+title = "My Blog"
+theme = "PaperMod"
+enableRobotsTXT = true
+languageCode = "en-us"
+
+[outputs]
+home = ["HTML", "RSS", "JSON"] # JSON enables search index
+
+[params]
+defaultTheme = "auto"        # light/dark toggle
+ShowReadingTime = true
+ShowCodeCopyButtons = true
+homeInfoParams = { Title = "Hi, I’m Jaap", Content = "Notes, code, and experiments." }
+
+[pagination]
+pagerSize = 10
+
+[menu]
+  [[menu.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+  [[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 20
+
+[params.profileMode]         # optional hero
+enabled = false
+
+[markup.highlight]
+noClasses = false            # better theming of code blocks
