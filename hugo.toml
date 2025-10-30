@@ -1,5 +1,5 @@
 baseURL = "https://jaapbrasser.github.io/"
-title = "My Blog"
+title = "Ship / Iterate / Repeat"
 theme = "PaperMod"
 enableRobotsTXT = true
 languageCode = "en-us"
@@ -8,10 +8,29 @@ languageCode = "en-us"
 home = ["HTML", "RSS", "JSON"] # JSON enables search index
 
 [params]
+showPostTags = true
+showToc = false
 defaultTheme = "auto"        # light/dark toggle
 ShowReadingTime = true
+author = "Jaap Brasser"
 ShowCodeCopyButtons = true
-homeInfoParams = { Title = "Hi, I’m Jaap", Content = "Notes, code, and experiments." }
+homeInfoParams = { Title = "Hi, I’m Jaap", Content = """Infrastructure, automation, and the things that break in production.
+
+I work with developer tools and automation, making things better.""" }
+
+[params.list]
+showTags = true
+
+[params.assets]
+favicon = "/jaapmonosmall.png"
+favicon16x16 = "/jaapmonosmall.png"
+favicon32x32 = "/jaapmonosmall.png"
+apple_touch_icon = "/jaapmonosmall.png"
+safari_pinned_tab = "/jaapmonosmall.png"
+
+[taxonomies]
+tag = "tags"
+category = "categories"
 
 [pagination]
 pagerSize = 10
