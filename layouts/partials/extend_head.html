@@ -1,0 +1,2 @@
+{{- $theme := resources.Get "js/theme.js" | minify }}
+   <script src="{{ $theme.Permalink }}" defer></script>

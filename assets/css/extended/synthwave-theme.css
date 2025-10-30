@@ -1,0 +1,215 @@
+/* Synthwave Theme - Inspired by Synthwave '84 */
+:root[data-theme="synthwave"] {
+    /* Base colors */
+    --theme: #241b2f;
+    --entry: #2b213a;
+    --primary: #ffd866;
+    --secondary: #ff6188;
+    --tertiary: #78dce8;
+    --content: #ffd866;
+    --code-block-bg: #2b213a;
+    --code-bg: #34294f;
+    --border: #495495;
+    
+    color-scheme: dark;
+}
+
+/* Enhanced text colors with synthwave glow */
+:root[data-theme="synthwave"] body {
+    background: linear-gradient(180deg, #241b2f 0%, #1a1625 100%);
+}
+
+/* Headers with neon glow */
+:root[data-theme="synthwave"] h1,
+:root[data-theme="synthwave"] h2,
+:root[data-theme="synthwave"] h3,
+:root[data-theme="synthwave"] h4,
+:root[data-theme="synthwave"] h5,
+:root[data-theme="synthwave"] h6 {
+    color: #ff6188;
+    text-shadow: 0 0 10px rgba(255, 97, 136, 0.5);
+}
+
+/* Links with cyan glow */
+:root[data-theme="synthwave"] a {
+    color: #78dce8;
+    text-shadow: 0 0 8px rgba(120, 220, 232, 0.4);
+}
+
+:root[data-theme="synthwave"] a:hover {
+    color: #a9dc76;
+    text-shadow: 0 0 12px rgba(169, 220, 118, 0.6);
+}
+
+/* Code blocks with purple tint */
+:root[data-theme="synthwave"] code {
+    background: #34294f;
+    color: #ff6188;
+    border: 1px solid #495495;
+}
+
+:root[data-theme="synthwave"] pre code {
+    background: #2b213a;
+    box-shadow: 0 0 20px rgba(120, 220, 232, 0.1);
+}
+
+/* Post entries with subtle glow */
+:root[data-theme="synthwave"] .post-entry {
+    background: #2b213a;
+    border: 1px solid #495495;
+    box-shadow: 0 4px 15px rgba(255, 97, 136, 0.1);
+}
+
+:root[data-theme="synthwave"] .post-entry:hover {
+    border-color: #78dce8;
+    box-shadow: 0 4px 20px rgba(120, 220, 232, 0.3);
+}
+
+/* Navigation with neon accent */
+:root[data-theme="synthwave"] .nav a {
+    color: #ffd866;
+}
+
+:root[data-theme="synthwave"] .nav a:hover {
+    color: #ff6188;
+    text-shadow: 0 0 10px rgba(255, 97, 136, 0.5);
+}
+
+/* Active menu items */
+:root[data-theme="synthwave"] #menu .active {
+    color: #78dce8;
+    border-bottom: 2px solid #ff6188;
+    text-shadow: 0 0 10px rgba(120, 220, 232, 0.5);
+}
+
+/* Buttons and interactive elements */
+:root[data-theme="synthwave"] button,
+:root[data-theme="synthwave"] .button {
+    background: #34294f;
+    border: 1px solid #495495;
+    color: #ffd866;
+}
+
+:root[data-theme="synthwave"] button:hover,
+:root[data-theme="synthwave"] .button:hover {
+    background: #3d325c;
+    border-color: #78dce8;
+    box-shadow: 0 0 15px rgba(120, 220, 232, 0.3);
+}
+
+/* Tags */
+:root[data-theme="synthwave"] .post-tags a {
+    background: #34294f;
+    color: #78dce8;
+    border: 1px solid #495495;
+}
+
+:root[data-theme="synthwave"] .post-tags a:hover {
+    background: #3d325c;
+    border-color: #ff6188;
+    box-shadow: 0 0 10px rgba(255, 97, 136, 0.3);
+}
+
+/* Blockquotes with pink accent */
+:root[data-theme="synthwave"] .post-content blockquote {
+    border-inline-start: 3px solid #ff6188;
+    background: rgba(255, 97, 136, 0.05);
+    box-shadow: 0 0 10px rgba(255, 97, 136, 0.1);
+}
+
+/* Table styling */
+:root[data-theme="synthwave"] .post-content table th {
+    background: #34294f;
+    color: #ff6188;
+    border-bottom: 2px solid #495495;
+}
+
+:root[data-theme="synthwave"] .post-content table td {
+    border-bottom: 1px solid #495495;
+}
+
+/* Pagination */
+:root[data-theme="synthwave"] .pagination a {
+    background: #34294f;
+    border: 1px solid #495495;
+    color: #ffd866;
+}
+
+:root[data-theme="synthwave"] .pagination a:hover {
+    border-color: #78dce8;
+    box-shadow: 0 0 15px rgba(120, 220, 232, 0.3);
+}
+
+/* Footer */
+:root[data-theme="synthwave"] .footer {
+    color: #78dce8;
+    border-top: 1px solid #495495;
+}
+
+:root[data-theme="synthwave"] .footer a {
+    color: #ff6188;
+    border-bottom-color: #ff6188;
+}
+
+/* Search box */
+:root[data-theme="synthwave"] #searchbox input {
+    background: #2b213a;
+    border: 2px solid #495495;
+    color: #ffd866;
+}
+
+:root[data-theme="synthwave"] #searchbox input:focus {
+    border-color: #78dce8;
+    box-shadow: 0 0 15px rgba(120, 220, 232, 0.3);
+}
+
+/* Archive styling */
+:root[data-theme="synthwave"] .archive-month {
+    border-bottom: 1px solid #495495;
+}
+
+:root[data-theme="synthwave"] .archive-year {
+    border-bottom: 2px solid #495495;
+}
+
+/* TOC (Table of Contents) */
+:root[data-theme="synthwave"] .toc {
+    background: #2b213a;
+    border: 1px solid #495495;
+}
+
+:root[data-theme="synthwave"] .toc a:hover {
+    color: #ff6188;
+}
+
+/* Scrollbar */
+:root[data-theme="synthwave"] ::-webkit-scrollbar-thumb {
+    background: #495495;
+    border: 5px solid #241b2f;
+}
+
+:root[data-theme="synthwave"] ::-webkit-scrollbar-thumb:hover {
+    background: #78dce8;
+}
+
+/* Theme toggle icon color in synthwave mode */
+:root[data-theme="synthwave"] #theme-toggle svg {
+    color: #ff6188;
+    filter: drop-shadow(0 0 5px rgba(255, 97, 136, 0.5));
+}
+
+/* Hide icons based on theme - these are overridden by JS, but keep for fallback */
+[data-theme="light"] #sun,
+[data-theme="light"] #synthwave {
+    display: none;
+}
+
+[data-theme="dark"] #moon,
+[data-theme="dark"] #sun {
+    display: none;
+}
+
+[data-theme="synthwave"] #moon,
+[data-theme="synthwave"] #synthwave {
+    display: none;
+}
