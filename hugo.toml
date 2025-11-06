@@ -1,4 +1,4 @@
-baseURL = "https://jaapbrasser.github.io/"
+baseURL = "https://jaapbrasser.com"
 title = "JaapBrasser.com"
 theme = "PaperMod"
 enableRobotsTXT = true
@@ -39,7 +39,7 @@ pagerSize = 10
 
 [menu]
   [[menu.main]]
-  name = "Posts"
+  name = "Blog"
   url = "/posts/"
   weight = 10
   [[menu.main]]
