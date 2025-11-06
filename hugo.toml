@@ -1,5 +1,5 @@
 baseURL = "https://jaapbrasser.github.io/"
-title = "Ship / Iterate / Repeat"
+title = "JaapBrasser.com"
 theme = "PaperMod"
 enableRobotsTXT = true
 languageCode = "en-us"
@@ -16,7 +16,9 @@ author = "Jaap Brasser"
 ShowCodeCopyButtons = true
 homeInfoParams = { Title = "Hi, I’m Jaap", Content = """Infrastructure, automation, and the things that break in production.
 
-I work with developer tools and automation, making things better.""" }
+I work with developer tools and automation, making things better.
+
+Ship - Iterate - Repeat""" }
 
 [params.list]
 showTags = true
