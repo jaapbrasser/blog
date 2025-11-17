@@ -12,7 +12,7 @@ Most of that pain comes from one missing feature: a built-in way to see what a s
 To discover which commands support the `-WhatIf` and `-Confirm` switch parameters, we will use the `Get-Command` cmdlet in combination with the `-ParameterName` parameter.
 
 ```powershell
-Get-Command -ParameterName Confirm | Measure-Object
+PS Jaap> Get-Command -ParameterName Confirm | Measure-Object
 
 Count             : 61
 Average           :
@@ -26,7 +26,7 @@ Property          :
 These are powerful tools, but you still need to check whether a cmdlet or function actually supports them before you trust that `-Confirm` parameter is supported and behaves as you expect. Two good example of this are `Stop-Process` and `Remove-Item`, both potentially destructive cmdlets.
 
 ```powershell
-Get-Process 'notepad' | Stop-Process -WhatIf
+PS Jaap> Get-Process 'notepad' | Stop-Process -WhatIf
 
 What if: Performing the operation "Stop-Process" on target "Explorer.exe".
 What if: Performing the operation "Stop-Process" on target "winlogon".
@@ -36,7 +36,7 @@ What if: Performing the operation "Stop-Process" on target "winlogon".
 As you can see here, we're piping `Get-Process` into `Stop-Process` and if it was not for the `-WhatIf` switch parameter, it would have attempted to stop all processes. This is especially useful when testing and validating your assumptions. And here is the `Remove-Item` example:
 
 ```powershell
-Remove-Item explorer.txt -Confirm
+PS Jaap> Remove-Item explorer.txt -Confirm
 
 Confirm
 Are you sure you want to perform this action?
