@@ -2,7 +2,7 @@
 title: "Run your PowerShell scripts with -WhatIf and -Confirm "
 date: 2025-11-16
 draft: false
-tags: ["PowerShell", "WhatIf", "Confirm", "safety", "scripting", "best-practices", "SupportShouldProcess]
+tags: ["PowerShell", "WhatIf", "Confirm", "safety", "scripting", "best-practices", "SupportShouldProcess"]
 summary: "Use -WhatIf and -Confirm to make destructive PowerShell commands safer."
 ---
 
