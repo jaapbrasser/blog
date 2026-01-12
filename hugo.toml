@@ -47,8 +47,8 @@ pagerSize = 10
   url = "/about/"
   weight = 20
 
-[params.profileMode]         # optional hero
+[params.profileMode] 
 enabled = false
 
 [markup.highlight]
-noClasses = false            # better theming of code blocks
+noClasses = false 
