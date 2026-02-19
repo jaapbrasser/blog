@@ -1,6 +1,6 @@
 +++
 title = "PwshWeb: A Python-Inspired HTTP Server for PowerShell"
-date = "2025-10-30"
+date = "2026-02-18"
 draft = false
 tags = ["powershell", "webserver", "http"]
 summary = "PwshWeb: a lightweight, cross-platform PowerShell module"
