@@ -5,7 +5,7 @@ draft = false
 tags = ["powershell", "webserver", "http"]
 summary = "PwshWeb: a lightweight, cross-platform PowerShell module"
 +++
-# PwshWeb: A Python-Inspired HTTP Server for PowerShell
+## PwshWeb: Why build it?
 
 If you've ever done local web development, you've probably typed `python3 -m http.server` at least once. It's one of Python's most quietly beloved features, zero config, instant file serving, done. But what if you're living in a PowerShell world, in my case what if you have to Google what the Python command is? What if you want that same frictionless experience without switching runtimes?
 
@@ -58,7 +58,7 @@ One of the most useful features for automation or longer-running workflows is th
 $server = Start-PwshWeb -Port 9000 -AsJob
 ```
 
-The returned `PwshWeb.ServerJob` object gives you the port, path, URI, start time, and — crucially — a reference to the underlying PowerShell `Job` object so you can manage it:
+The returned `PwshWeb.ServerJob` object gives you the port, path, URI, start time, and *crucially* a reference to the underlying PowerShell `Job` object so you can manage it:
 
 ```powershell
 # Check what's running
@@ -72,7 +72,7 @@ Remove-Job $server.Job
 
 ### Verbose Logging
 
-Add `-Verbose` to get per-request logging in the console — handy for debugging what your browser or test runner is actually requesting.
+Add `-Verbose` to get per-request logging in the console, which is useful for debugging what your browser or test runner is actually requesting.
 
 ### WhatIf and Confirm
 
@@ -91,18 +91,18 @@ Start-PwshWeb -Port 8080 -WhatIf
 |-----------|------|---------|-------------|
 | `-Port` | `Int32` | `8000` | Port to listen on (1–65535) |
 | `-Path` | `String` | Current directory | Directory to serve (must exist) |
-| `-AsJob` | `Switch` | — | Run server as a background job |
-| `-WhatIf` | `Switch` | — | Preview action without executing |
-| `-Confirm` | `Switch` | — | Prompt for confirmation before starting |
-| `-Verbose` | Common | — | Enable per-request console logging |
+| `-AsJob` | `Switch` | - | Run server as a background job |
+| `-WhatIf` | `Switch` | - | Preview action without executing |
+| `-Confirm` | `Switch` | - | Prompt for confirmation before starting |
+| `-Verbose` | `Switch` | - | Enable per-request console logging |
 
 ---
 
 ## Directory Listings and File Serving
 
-If a requested directory doesn't contain an `index.html` or `index.htm`, PwshWeb auto-generates a styled HTML directory listing. It's not just a raw file dump — directories are listed first (sorted), then files, each with a clickable link, human-readable file size (bytes/KB/MB/GB), and a last-modified timestamp. A `..` parent directory link makes navigation intuitive.
+If a requested directory doesn't contain an `index.html` or `index.htm`, PwshWeb auto-generates a styled HTML directory listing. It's not just a raw file dump, directories are listed first (sorted), then files, each with a clickable link, human-readable file size (bytes/KB/MB/GB), and a last-modified timestamp. A `..` parent directory link allows for navigating up a folder.
 
-When an `index.html` or `index.htm` is present, it's served automatically — exactly the behavior you'd expect.
+When an `index.html` or `index.htm` is present, it's served automatically.
 
 ### MIME Type Support
 
@@ -120,13 +120,13 @@ PwshWeb handles over 20 MIME types out of the box:
 
 ### System.Net.HttpListener
 
-PwshWeb uses .NET's built-in `System.Net.HttpListener` to bind to `http://localhost:{Port}/`. This is a robust, production-tested HTTP listener that ships with every .NET runtime — no external HTTP libraries required.
+PwshWeb uses .NET's built-in `System.Net.HttpListener` to bind to `http://localhost:{Port}/`. This is an existing HTTP listener that ships with every .NET runtime.
 
 The server's main loop uses `GetContextAsync()` for non-blocking context retrieval, polling every 100ms (with a 10ms sleep) to remain responsive to cancellation. This keeps CPU usage low while still being able to react promptly to `Ctrl+C`.
 
 ### The Job Isolation Problem (And How It's Solved)
 
-Here's where it gets interesting. When you use `-AsJob`, the server code runs in a **separate PowerShell runspace** — an isolated environment that doesn't inherit functions defined in your session. This is a common gotcha when working with PowerShell background jobs.
+Here's where it gets interesting. When you use `-AsJob`, the server code runs in a **separate PowerShell runspace**, an isolated environment.
 
 PwshWeb solves this elegantly: the helper functions (`Get-DirectoryListing`, `Format-FileSize`, `Get-ContentType`) are **serialized as strings** and injected into the job's scriptblock via `Invoke-Expression` at runtime. The job literally carries its own function definitions with it, bootstrapping everything it needs inside the isolated runspace. It's a clean pattern worth knowing if you're building your own job-based tools.
 
@@ -144,7 +144,7 @@ Each server instance generates a unique GUID (`RunspaceId`) at startup. This get
 
 **Testing web apps.** Some JavaScript features (like service workers or certain `fetch` behaviors) require an HTTP context. PwshWeb gives you that context instantly, without spinning up a full dev server.
 
-**CI/CD artifact serving.** Running integration tests that need to fetch static assets over HTTP? Start PwshWeb as a background job, run your tests, then stop it — all in the same pipeline script.
+**CI/CD artifact serving.** Running integration tests that need to fetch static assets over HTTP? Start PwshWeb as a background job, run your tests, then stop it.
 
 ---
 
@@ -162,7 +162,7 @@ Each server instance generates a unique GUID (`RunspaceId`) at startup. This get
 | Directory listing | ✅ | ✅ (styled HTML) |
 | Requires separate runtime | Python 3 | PowerShell 5.1+ |
 
-The headline difference is job management. Python's HTTP server blocks the terminal, and backgrounding it (`python3 -m http.server &`) leaves you with a process to hunt down and kill manually. PwshWeb's `-AsJob` gives you a proper handle to the server — start it, use it, stop it cleanly, all from the same script.
+The headline difference is job management. Python's HTTP server blocks the terminal, and backgrounding it (`python3 -m http.server &`) leaves you with a process to hunt down and kill manually. PwshWeb's `-AsJob` gives you a proper handle to the server, start it, use it, stop it cleanly, all from the same script.
 
 ---
 
